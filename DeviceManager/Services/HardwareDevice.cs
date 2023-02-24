@@ -29,7 +29,7 @@ namespace DeviceManager.Services
             if (thread == null)
             {
                 threadActive = true;
-                thread = new Thread(new ThreadStart(ThreadMethod));
+                thread = new Thread(new ThreadStart(RunThreadHardwareDevice));
                 thread.IsBackground = true;
                 thread.Name = $"Thread to manage Hardware Device {DeviceId}";
                 thread.Start();
@@ -43,7 +43,7 @@ namespace DeviceManager.Services
                 thread.Join(5000);
         }
 
-        private void ThreadMethod()
+        private void RunThreadHardwareDevice()
         {
             try
             {

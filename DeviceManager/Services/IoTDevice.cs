@@ -21,14 +21,14 @@ namespace DeviceManager.Services
         private readonly DeviceClient deviceClient;
         private readonly CancellationToken cancellationToken;
         private readonly int id;
-        private readonly ConcurrentQueue<IoTData> dataToSend;
+        private readonly ConcurrentQueue<IoTData> queueOfDataToSend;
 
         public IoTDevice(int id, string connectionString, CancellationToken cancellationToken)
         {
             this.cancellationToken = cancellationToken;
             this.id = id; 
             this.deviceClient = DeviceClient.CreateFromConnectionString(connectionString, TransportType.Mqtt);
-            this.dataToSend = new ConcurrentQueue<IoTData>();
+            this.queueOfDataToSend = new ConcurrentQueue<IoTData>();
         }
 
         public async Task Start()
@@ -42,7 +42,7 @@ namespace DeviceManager.Services
             if (thread == null)
             {
                 threadActive = true;
-                thread = new Thread(new ThreadStart(ThreadMethod));
+                thread = new Thread(new ThreadStart(RunThreadIoTDevice));
                 thread.IsBackground = true;
                 thread.Name = $"Thread to manage IoT Device {this.id}";
                 thread.Start();
@@ -59,16 +59,16 @@ namespace DeviceManager.Services
 
         public void AddMessage(IoTData data)
         {
-            dataToSend.Enqueue(data);
+            queueOfDataToSend.Enqueue(data);
         }
 
-        private void ThreadMethod()
+        private void RunThreadIoTDevice()
         {
             try
             {
                 while ((threadActive) && (!cancellationToken.IsCancellationRequested))
                 {
-                    if (dataToSend.TryDequeue(out IoTData? data))
+                    if (queueOfDataToSend.TryDequeue(out IoTData? data))
                     {
                         SendIoTMessage(data).Wait();
                     }

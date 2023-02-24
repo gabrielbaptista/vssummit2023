@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="DeviceManager.Tools.Utils">
+    <Position X="6" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAABAAA=</HashCode>
+      <FileName>Tools\Utils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DeviceManager.Data.IoTData">
+    <Position X="6" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAgAAAAAAAAAAAABAAAgAAAAAAA=</HashCode>
+      <FileName>Data\IoTData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DeviceManager.Services.HardwareDevice">
+    <Position X="7.75" Y="5.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAACAgAAEAAAAABAAgAAIAAAAAMAAAAAAAAAA=</HashCode>
+      <FileName>Services\HardwareDevice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DeviceManager.Services.IoTDevice">
+    <Position X="15" Y="1.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAMgAAAAACAAAAkAAAAAAAAAAAIAAAAAIAAAAABAEgA=</HashCode>
+      <FileName>Services\IoTDevice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DeviceManager.Services.VSSummit2023Emulator">
+    <Position X="8.75" Y="1.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAgAAAEAAkABAAAAAAAAQQAAQAAAAACAAAA=</HashCode>
+      <FileName>Services\VSSummit2023Emulator.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_devices" />
+      <Field Name="_HardwareDevices" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

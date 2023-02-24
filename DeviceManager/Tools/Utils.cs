@@ -14,14 +14,11 @@ namespace DeviceManager.Tools
 
         internal static int GetNextIndex()
         {
-            index++;
-            return index;
-            /*
-            lock(indexLock)
+            lock (indexLock)
             {
                 index++;
                 return index;
-            }*/
+            }
         }
     }
 }
